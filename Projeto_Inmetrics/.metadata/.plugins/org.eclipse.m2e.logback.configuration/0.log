@@ -1303,3 +1303,12 @@
 2020-08-14 11:56:02,217 [Worker-10: Launching Runner] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Inmetrics\Projeto_Inmetrics\testes automatizados\src\main\resources
 2020-08-14 11:56:02,219 [Worker-10: Launching Runner] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-08-14 11:56:02,226 [Worker-10: Launching Runner] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-08-14 12:41:09,772 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-08-14 12:43:13,834 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-14 12:43:13,835 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Inmetrics\Projeto_Inmetrics\testes automatizados\src\main\resources
+2020-08-14 12:43:13,837 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-14 12:43:13,841 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-08-14 12:44:28,327 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-14 12:44:28,328 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Inmetrics\Projeto_Inmetrics\testes automatizados\src\main\resources
+2020-08-14 12:44:28,329 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-14 12:44:28,335 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource

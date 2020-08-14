@@ -13,7 +13,7 @@ Funcionalidade: Prova Inmetrics
 	| Marcos Cunha | QA    | 095.890.147-39 | 650000  | Masculino | clt              | 17/08/2020 |
 	Então valido mensagem "SUCESSO! Usuário cadastrado com sucesso"
 	
-	@Ru
+	@Run
 	Cenário: Alterar Informações Funcionário
 	Dado que acesso o sistema
 	Quando acesso tela de funcionários
@@ -22,7 +22,7 @@ Funcionalidade: Prova Inmetrics
 	Então altero o cargo para "Analista de Qualidade"
 	E valido mensagem "SUCESSO! Informações atualizadas com sucesso"
 	
-	@Ru
+	@Run
 	Cenário: Remover Funcionário
 	Dado que acesso o sistema
 	Quando acesso tela de funcionários
@@ -30,7 +30,7 @@ Funcionalidade: Prova Inmetrics
 	E clico em excluir o primeiro funcionário da lista
 	Então valido mensagem "SUCESSO! Funcionário removido com sucesso"
 	
-	@Ru
+	@Run
 	Cenário: Cadastrar Usuário
 	Dado que acesso o site
 	E clico para cadastrar usuário
@@ -39,7 +39,7 @@ Funcionalidade: Prova Inmetrics
 	| AmaralJF | 123456 | 123456           |
 	Então valido que estou na tela de login
 	
-	@Ru
+	@Run
 	Cenário: Cadastrar Usuário com menos de oito caracteres
 	Dado que acesso o site
 	E clico para cadastrar usuário
