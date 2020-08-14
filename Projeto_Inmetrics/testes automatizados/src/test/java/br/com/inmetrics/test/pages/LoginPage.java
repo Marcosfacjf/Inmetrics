@@ -1,0 +1,46 @@
+package br.com.inmetrics.test.pages;
+
+public class LoginPage extends BasePage{
+	
+	private String URL_LOGIN = "http://www.inmrobo.tk/accounts/login/";
+	private String CAMPO_USUARIO = "//input[@name='username']";          
+	private String CAMPO_SENHA =  "//input[@name='pass']";                           
+	private String BOTAO_ENTRAR = "//button[@class='login100-form-btn']";
+	private String XPATH_BOTAO_CADASTRE = "//a[@class='txt2 bo1']";
+	
+	public LoginPage() {
+		
+	}
+
+	public void acessarPaginaLogin() {
+		getDSL().visitarPagina(URL_LOGIN);
+	}
+	
+	private void setUsuario(String usuario) {
+		getDSL().inserirCampo(CAMPO_USUARIO, usuario);
+	}
+	
+	private void setSenha(String senha) {
+		getDSL().inserirCampo(CAMPO_SENHA, senha);
+	}
+	
+	public void efetuarLogin(String usuario, String senha) {
+		if (!estaEmLogin()) {
+			getDSL().visitarPagina(URL_LOGIN);
+		}
+		getDSL().esperarAteExistente(CAMPO_USUARIO, 5000);
+		setUsuario(usuario);
+		getDSL().esperarAteExistente(CAMPO_SENHA, 5000);
+		setSenha(senha);
+		getDSL().clicar(BOTAO_ENTRAR);
+	}
+	
+	public boolean estaEmLogin() {
+		return getDSL().getEndereco().equals(URL_LOGIN);
+	}
+	
+	public void acessoTelaCadastroUsuario() {
+		getDSL().clicar(XPATH_BOTAO_CADASTRE);
+	}
+
+}

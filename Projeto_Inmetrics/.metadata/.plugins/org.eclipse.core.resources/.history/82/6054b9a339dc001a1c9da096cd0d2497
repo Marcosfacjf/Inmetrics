@@ -1,0 +1,12 @@
+#language:pt
+
+
+Funcionalidade: Prova Inmetrics
+
+	Contexto:
+	Dado que acesso o sistema
+	
+	
+	@Run
+	Cenário: Cadastrar Novo Funcionário
+	Quando acesso tela de cadastramento de novos funcionários

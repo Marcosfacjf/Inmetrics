@@ -1,0 +1,18 @@
+package br.com.inmetrics.test.pages;
+
+public class NovosFuncionariosPage extends BasePage {
+	
+	private String XPATH_NOME = "";
+
+	public NovosFuncionariosPage() {
+		super();
+	}
+	
+	public NovosFuncionariosPage preencherDadosNovoFuncionario(String nome, String cargo, String cpf, 
+			String salario, String sexo, String tipoContratacao, String admissao) {
+		getDSL().digitar(XPATH_NOME, nome);
+		getDSL().
+		return this;
+	}
+	
+}

@@ -1,0 +1,12 @@
+#language:pt
+
+
+Funcionalidade: Prova Inmetrics
+
+	Contexto:
+	Dado que acesso o sistema
+	
+	
+	@Run
+	Cenário: Retornando um item na pesquisa e adicionando no carrinho
+	Quando acesso tela de cadastramento de novos funcionários

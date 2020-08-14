@@ -1,0 +1,15 @@
+#language:pt
+
+
+Funcionalidade: Prova Inmetrics
+
+	Contexto:
+	Dado que acesso o sistema
+	
+	
+	@Run
+	Cenário: Cadastrar Novo Funcionário
+	Quando acesso tela de cadastramento de novos funcionários
+	E preencho os dados do novo funcionário
+	| Nome         | Cargo | CPF            | Salario | Sexo      | Tipo Contratacao | Admissao   |
+	| Marcos Cunha | QA    | 095.890.147-39 | 650000  | Masculino | CLT              | 17/08/2020 |

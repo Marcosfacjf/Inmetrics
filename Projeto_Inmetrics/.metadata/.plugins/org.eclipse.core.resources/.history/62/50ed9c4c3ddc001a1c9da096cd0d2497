@@ -1,0 +1,30 @@
+package br.com.inmetrics.test.pages;
+
+public class NovosFuncionariosPage extends BasePage {
+	
+	private String XPATH_NOME = "//input[@id = 'inputNome']";
+	private String XPATH_CARGO = "//input[@id = 'inputCargo']";
+	private String XPATH_CPF = "//input[@id = 'cpf']";
+	private String XPATH_SALARIO ="//input[@id = 'dinheiro']";
+	private String XPATH_SEXO ="//input[@id = 'slctSexo']";
+	private String XPATH_TIPO_CONTRATACAO = "//label[text()='%s']";
+	private String XPATH_ADMISSAO = "//input[@id = 'inputAdmissao']";
+
+	public NovosFuncionariosPage() {
+		super();
+	}
+	
+	public NovosFuncionariosPage preencherDadosNovoFuncionario(String nome, String cargo, String cpf, 
+			String salario, String sexo, String tipoContratacao, String admissao) {
+		getDSL().esperarAteExistente(XPATH_NOME, 2000)
+				.digitar(XPATH_NOME, nome)
+				.digitar(XPATH_CARGO, cargo)
+				.digitar(XPATH_CPF, cpf)
+				.digitar(XPATH_SALARIO, salario)
+				.digitar(XPATH_SEXO, sexo)
+				.clicar(String.format(XPATH_TIPO_CONTRATACAO, tipoContratacao))
+				.digitar(XPATH_ADMISSAO, admissao);
+		return this;
+	}
+	
+}

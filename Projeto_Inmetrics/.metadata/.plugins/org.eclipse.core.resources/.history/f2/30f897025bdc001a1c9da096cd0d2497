@@ -1,0 +1,148 @@
+package br.com.inmetrics.test.steps;
+
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import cucumber.api.java.af.En;
+import cucumber.api.java.pt.Dado;
+import cucumber.api.java.pt.Então;
+import cucumber.api.java.pt.Quando;
+import cucumber.api.Scenario;
+
+import static br.com.inmetrics.test.core.DriverFactory.getDriver;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Map;
+import java.util.List;
+import io.cucumber.datatable.DataTable;
+
+import br.com.inmetrics.test.pages.*;
+import br.com.inmetrics.test.core.Properties;
+
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.OutputType;
+import org.apache.commons.io.FileUtils;
+
+
+
+
+public class StepDefinition {
+
+	private BasePage basePage = new BasePage();
+	private HomePage homePage = new HomePage();
+	private LoginPage loginPage = new LoginPage();
+	private NovosFuncionariosPage novosFuncionariosPage = new NovosFuncionariosPage();
+	private FuncionariosPage funcionariosPage = new FuncionariosPage();
+	private CadastramentoUsuarioPage cadastramentoUsuarioPage = new CadastramentoUsuarioPage();
+	private TakesScreenshot ss;
+	private Scenario scenario;
+	private String usuario;
+	private String senha;
+	
+	
+	public StepDefinition() {
+		this.usuario = Properties.USER_LOGIN;
+		this.senha = Properties.PASSWORD_LOGIN;
+	}
+	
+	@After()
+	public void fecharBrowser() throws IOException {
+		File arquivo = ss.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(arquivo,
+				new File("target" + File.separator + "ScreenShot" + File.separator + this.scenario.getName() + ".jpg"));
+		basePage.fecharBrowser();
+	}
+	
+	@Before()
+	public void iniciliazarCenario(Scenario scenario) {
+		this.scenario = scenario;
+		this.ss = (TakesScreenshot) getDriver();
+	}
+	
+	@Dado("que acesso o sistema")
+	public void acessoSistema() {
+		loginPage.efetuarLogin(usuario, senha);
+	}
+	
+	@Dado("que acesso o site")
+	public void acessarSite() {
+		loginPage.acessarPaginaLogin();
+	}
+	
+	@Dado("clico para cadastrar usuário")
+	public void clicoCadastrarUsuario() {
+		loginPage.acessoTelaCadastroUsuario();
+	}
+	
+	@Quando("acesso tela de cadastramento de novos funcionários")
+	public void acessoTelaCadastramentoNovosFuncionarios() {
+		homePage.acessarNovoFuncionario();
+	}
+	
+	@Quando("acesso tela de funcionários")
+	public void acessoTelaFuncionarios() {
+		homePage.acessarTelaFuncionarios();
+	}
+	
+	@Quando("clico em excluir o primeiro funcionário da lista")
+	public void clicoExcluirPrimeiroLista() {
+		funcionariosPage.clicarExcluirPrimeiroLista();
+	}
+	
+	@Quando("pesquiso pelo usuário cadastrado {string}")
+	public void pesquisoUsuarioCadastrado(String nome) {
+		funcionariosPage.pesquisarUsuarioCadastrado(nome);
+	}
+	
+	@Quando("clico em editar o primeiro da lista")
+	public void clicoEditarPrimeiroLista() {
+		funcionariosPage.clicarEditarPrimeiroLista();
+	}
+	
+	@Quando("altero o cargo para {string}")
+	public void alteroCargo(String cargo) {
+		funcionariosPage.alterarCargo(cargo);
+	}
+	
+	@Então("salvo a alteração")
+	public void salvoAlteracao() {
+		funcionariosPage.salvarAlteracao();
+	}
+	
+	@Quando("preencho os dados do novo usuário")
+	public void preenchoDadosNovoUsuario(DataTable dataTable) {
+		List<Map<String, String>> list = dataTable.asMaps(String.class, String.class);
+		String usuario = list.get(0).get("Usuario");
+		String senha = list.get(0).get("Senha");
+		String confirmacaoSenha = list.get(0).get("Confirme a Senha");
+		cadastramentoUsuarioPage.preencherDadosNovoUsuario(usuario, senha, confirmacaoSenha);
+	}
+	
+	@Quando("preencho os dados do novo funcionário")
+	public void preenchoDadosNovoFuncionario(DataTable dataTable) {
+		List<Map<String, String>> list = dataTable.asMaps(String.class, String.class);
+		String nome = list.get(0).get("Nome");
+		String cargo = list.get(0).get("Cargo");
+		String cpf = list.get(0).get("CPF");
+		String salario = list.get(0).get("Salario");
+		String sexo = list.get(0).get("Sexo");
+		String tipoContratacao = list.get(0).get("Tipo Contratacao");
+		String admissao = list.get(0).get("Admissao");
+		novosFuncionariosPage.preencherDadosNovoFuncionario(nome, cargo, cpf, salario, sexo, tipoContratacao, admissao);
+	}
+	
+	@Quando("clico em enviar")
+	public void clicoEnviar() {
+		novosFuncionariosPage.clicarEnviar();
+	}
+	
+	@Então("valido mensagem {string}")
+	public void validoMensagemUsuarioCadastrado(String mensagem) {
+		homePage.validarMensagem(mensagem);
+	}
+	
+	@Então("valido que estou na tela de login")
+	public void validoTelaLogin() {
+		homePage.validarTelaLogin();
+	}
+}

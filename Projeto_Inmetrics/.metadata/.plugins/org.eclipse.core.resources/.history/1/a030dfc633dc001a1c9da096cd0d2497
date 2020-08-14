@@ -1,0 +1,6 @@
+package br.com.inmetrics.test.core;
+
+public class Properties {
+	public static String USER_LOGIN = "oi398863";
+	public static String PASSWORD_LOGIN = "123puc21";
+}
