@@ -35,7 +35,7 @@ Funcionalidade: Prova Inmetrics
 	Dado que acesso o site
 	E clico para cadastrar usuário
 	Quando preencho os dados do novo usuário
-	| Usuario  | Senha  | Confirme a Senha |
+	| Usuario         | Senha  | Confirme a Senha |
 	| TESTES_Cadastro | 123456 | 123456           |
 	Então valido que estou na tela de login
 	
