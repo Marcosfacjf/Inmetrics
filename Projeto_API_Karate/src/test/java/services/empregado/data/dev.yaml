@@ -1,0 +1,13 @@
+empregado_get:
+  expected_response:
+    all_empregado: { "empregadoId": "#notnull", "nome": "#string","sexo": "#string","cpf": "#string","cargo": "#string","admissao": "#string","salario": "#string","comissao": "#string","tipoContratacao": "#string" }
+    empregado_cadastrado: { "admissao": "#string","comissao": "#string","tipoContratacao": "#string","salario": "#string","cpf": "#notnull","nome": "#string","sexo": "#string","cargo": "#string",empregadoId": "#notnull"}
+empregado_post:
+  cpf_invalid: "00000000000"
+  adm_invalid: "18-04-2020"
+  adm_valid: "18/04/2020"
+
+  expected_response:
+    cpf_valid: { "empregadoId": "#notnull","nome": "#string","sexo": "#string","cpf": "#notnull","cargo": "#string","salario": "#string","comissao": "#string","tipoContratacao": "#string" }
+    cpf_invalid: [ "cpf: deve estar no padrão 111.222.333-00" ]
+    adm_invalid: [ "admissao: deve estar no padrão 31/12/2020" ]

@@ -1,0 +1,6 @@
+dev:
+  env: 'dev'
+  inm_api_test: 'https://inm-api-test.herokuapp.com'
+prod:
+  env: 'prod'
+  inm_api_test: 'https://inm-api-test.herokuapp.com'

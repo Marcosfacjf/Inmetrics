@@ -1,0 +1,13 @@
+apiVersion: inmetrics/v1
+kind: Repository
+metadata:
+  costCenter: unknown
+  tribe: unknown
+  squad: unknown
+  team:
+    channel: unknown
+    alias: unknown
+    email: marcos.cunha@inmetrics.com.br
+    owner: marcos.cunha
+spec:
+  contents: []

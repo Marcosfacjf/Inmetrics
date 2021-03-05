@@ -1,0 +1,11 @@
+{
+  "admissao": "18/04/2021",
+  "cargo": "QA",
+  "comissao": "2.000,00",
+  "cpf": "#(cpf)",
+  "departamentoId": 1,
+  "nome": "#(name)",
+  "salario": "10.000,00",
+  "sexo": "m",
+  "tipoContratacao": "clt",
+}

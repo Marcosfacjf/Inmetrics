@@ -1,0 +1,41 @@
+package br.com.inmetrics.test.pages;
+
+public class FuncionariosPage extends BasePage {
+	
+	private String XPATH_CAMPO_PESQUISA = "//input[@type='search']";
+	private String XPATH_PRIMEIRO_BOTAO_EDITAR = "//tr[1]//button[@class='btn btn-warning']";
+	private String XPATH_CARGO = "//input[@id = 'inputCargo']";
+	private String XPATH_BOTAO_ENTRAR = "//input[@class='cadastrar-form-btn']";
+	private String XPATH_PRIMEIRO_BOTAO_EXCLUIR = "//tr[1]//button[@id='delete-btn']";
+
+	
+	public FuncionariosPage() {
+		super();
+	}
+	
+	public FuncionariosPage pesquisarUsuarioCadastrado(String nome) {
+		getDSL().digitar(XPATH_CAMPO_PESQUISA, nome);
+		return this;
+	}
+	
+	public FuncionariosPage clicarEditarPrimeiroLista() {
+		getDSL().clicar(XPATH_PRIMEIRO_BOTAO_EDITAR);
+		return this;
+	}
+	
+	public FuncionariosPage clicarExcluirPrimeiroLista() {
+		getDSL().clicar(XPATH_PRIMEIRO_BOTAO_EXCLUIR);
+		return this;
+	}
+	
+	public FuncionariosPage alterarCargo(String cargo) {
+		getDSL().esperarAteExistente(XPATH_CARGO, 2000)
+				.digitar(XPATH_CARGO, cargo);
+		return this;
+	}
+	
+	public FuncionariosPage salvarAlteracao() {
+		getDSL().clicar(XPATH_BOTAO_ENTRAR);
+		return this;
+	}
+}
